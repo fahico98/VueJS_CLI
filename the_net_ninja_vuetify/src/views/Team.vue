@@ -1,14 +1,13 @@
 
-
 <template>
 
-   <div class="projects">
+   <div class="team">
       <v-container class="my-12 px-0">
       <h2 class="mb-10">Team</h2>
          
          <v-row>
             <v-col cols="12" sm="6" md="4" lg="3" v-for="person in team" :key="person.name">
-               <v-card class="text-center" tile outlined>
+               <v-card class="text-center" tile>
                   <v-responsive class="pt-4">
                      <v-avatar size="100" class="teal lighten-3">
                         <img :src="person.avatar">

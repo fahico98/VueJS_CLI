@@ -6,7 +6,6 @@
       <h2 class="mb-10">Dashboard</h2>
 
          <v-row class="mb-4 ml-2">
-
             <v-tooltip top>
                <template  v-slot:activator="{ on }">   
                   <v-btn small text color="teal" v-on:click.prevent="sortBy('title')" v-on="on">
@@ -16,7 +15,6 @@
                </template>
                <span>Sort projects by project name</span>
             </v-tooltip>
-
             <v-tooltip top>
                <template  v-slot:activator="{ on }">  
                   <v-btn small text color="teal" v-on:click.prevent="sortBy('person')" v-on="on" class="ml-2">
@@ -28,24 +26,7 @@
             </v-tooltip>
          </v-row>
 
-         <v-card tile outlined>
-            <v-row class="ma-0">
-               <v-col cols="12" sm="6">
-                  <div class="body-1 teal--text">Project title</div>
-               </v-col>
-               <v-col cols="4" sm="2">
-                  <div class="body-1 teal--text">Person</div>
-               </v-col>
-               <v-col cols="4" sm="2">
-                  <div class="body-1 teal--text">Due by</div>
-               </v-col>
-               <v-col cols="4" sm="2">
-                  <div class="body-1 teal--text">Status</div>
-               </v-col>
-            </v-row>
-         </v-card>
-
-         <v-card tile outlined v-for="project in projects" :key="project.title">
+         <v-card tile v-for="project in projects" :key="project.title">
             <v-row class="ma-0" :class="`project ${project.status}`">
                <v-col cols="12" sm="6">
                   <div class="caption teal--text">Project title</div>
@@ -66,6 +47,7 @@
                </v-col>
             </v-row>
          </v-card>
+         
       </v-container>
    </div>
 
