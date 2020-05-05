@@ -1,9 +1,11 @@
 
 <template>
    <v-app>
+      <main-navbar/>
       <v-content class="blue-grey lighten-5">
-         <main-navbar/>
-         <router-view></router-view>
+         <v-container>
+            <router-view></router-view>
+         </v-container>
       </v-content>
    </v-app>
 </template>
@@ -17,9 +19,11 @@
       components: {
          MainNavbar
       },
-      data: () => ({
-         //
-      }),
+      data(){
+         return {
+            temp: true
+         }
+      },
    };
 
 </script>
