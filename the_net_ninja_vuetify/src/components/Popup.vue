@@ -42,7 +42,7 @@
 
    import format from 'date-fns/format';
    import parseISO from 'date-fns/parseISO';
-   import db from "../firebase";
+   import db from "@/firebase";
 
    export default {
       name: "popup",
@@ -90,6 +90,7 @@
                db.collection("projects").add(project).then(() => {
                   this.loading = false;
                   this.closeDialog();
+                  this.$emit("new-project-added");
                });
             }
          },

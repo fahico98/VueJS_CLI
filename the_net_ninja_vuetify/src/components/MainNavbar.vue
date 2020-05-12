@@ -3,6 +3,13 @@
 
    <div>
 
+      <v-snackbar v-model="snackbar" :timeout="5000" color="teal" top>
+         <span color="white--text">Awesome! you added a new project.</span>
+         <v-btn color="white--text" text @click="snackbar = false">
+            <span class="text-capitalize">Close</span>
+         </v-btn>
+      </v-snackbar>
+
       <v-navigation-drawer app v-model="drawer" class="teal">
          <v-row>
             <v-col class="mt-5 text-center">
@@ -11,7 +18,7 @@
             </v-col>
          </v-row>
          <v-row class="text-center mb-4">
-            <v-col><popup/></v-col>
+            <v-col><popup v-on:new-project-added="snackbar = true"/></v-col>
          </v-row>
          <v-list>
             <v-list-item v-for="link in links" :key="link.text" router-link v-bind:to="link.route">
@@ -73,6 +80,7 @@
       data(){
          return {
             drawer: false,
+            snackbar: false,
             links: [
                {icon: 'mdi-view-dashboard', text: 'Dashboard', route: '/'},
                {icon: 'mdi-folder', text: 'My Projects', route: '/projects'},
